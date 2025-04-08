@@ -1,8 +1,7 @@
 # 🍫 Chocolatey_installer
- Quick installer via Powershell as admin [](admin-ps1.png)
-inportant before running the script use as ***admin*** 
+Quick installer via Powershell, install list of `apps.txt` via `install-apps.ps1` 
 
-To [Install Chocolatey](https://chocolatey.org/install), from a Powershell **Administrator** console, simply do:
+### 1. To [Install Chocolatey](https://chocolatey.org/install), from a Powershell **Administrator** console, simply do:
 
 ``` ps1
 Set-Location $env:USERPROFILE
@@ -10,12 +9,15 @@ If ( ! ( Test-Path $PROFILE ) ) { New-Item -Force -ItemType File -Path $PROFILE;
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 RefreshEnv.cmd
 ```
-
 And you're ready to go.
-
 If you want a window interface instead of the powershell console, you can do: `choco install chocolateygui`.
 
-> To use the batch installer Run this:
+
+### 2. Change the execution policy
+``` ps1
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+``` 
+### 3. To use the batch installer Run this:
  ```ps1
 .\install-apps.ps1 -filePath ".\apps.txt"
 ```
@@ -24,7 +26,6 @@ If you want a window interface instead of the powershell console, you can do: `c
 - see `chocolatey_cheatsheet.md` for quick indication of more functionalities
 
 - change `apps.txt` accourdingly to your wishes, for example:
-
 ```
 brave
 docker-desktop
@@ -45,6 +46,6 @@ vscode-gitlens
 vscode-markdown-all-in-one
 vscode-powershell
 vscode-prettier
-vscode-python
+vscode-liveserver
 xampp-81
 ```

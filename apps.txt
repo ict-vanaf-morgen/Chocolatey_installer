@@ -17,5 +17,5 @@ vscode-gitlens
 vscode-markdown-all-in-one
 vscode-powershell
 vscode-prettier
-vscode-python
+vscode-liveserver
 xampp-81
